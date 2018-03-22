@@ -2280,16 +2280,6 @@ class Home:
             epCats[str(curResult["season"]) + "x" + str(curResult["episode"])] = curEpCat
             epCounts[curEpCat] += 1
 
-        def titler(x):
-            if not x:
-                return x
-            if not x.lower().startswith('a to ') and x.lower().startswith('a '):
-                    x = x[2:]
-            elif x.lower().startswith('an '):
-                    x = x[3:]
-            elif x.lower().startswith('the '):
-                    x = x[4:]
-            return x
         t.sortedShowList = sorted(sickbeard.showList, lambda x, y: cmp(x.name, y.name))
 
         t.epCounts = epCounts
