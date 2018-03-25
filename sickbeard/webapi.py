@@ -133,19 +133,8 @@ class Api:
         """ expose the api-builder template """
         t = webserve.PageTemplate(file="apiBuilder.tmpl")
 
-        def titler(x):
-            if not x:
-                return x
-            if not x.lower().startswith('a to ') and x.lower().startswith('a '):
-                    x = x[2:]
-            elif x.lower().startswith('an '):
-                    x = x[3:]
-            elif x.lower().startswith('the '):
-                    x = x[4:]
-            return x
-
         # enforce a 100 show limit to ensure performance
-        t.sortedShowList = sorted(sickbeard.showList, lambda x, y: cmp(titler(x.name), titler(y.name)))[0:100]
+        t.sortedShowList = sorted(sickbeard.showList, lambda x, y: cmp(x.name, y.name))[0:100]
 
         myDB = db.DBConnection(row_type="dict")
         seasonSQLResults = {}

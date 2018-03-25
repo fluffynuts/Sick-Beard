@@ -16,7 +16,7 @@
         return false;
     },
     format: function(s) {
-        return /^(a to )/i.test(s || '') ? s : (s || '').replace(/^(The|A|An)\s/i,'');
+        return (s || '');
     },
     type: 'text'
 });
